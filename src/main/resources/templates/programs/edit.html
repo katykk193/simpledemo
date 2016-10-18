@@ -1,0 +1,26 @@
+<html layout:decorator="layout">
+<div layout:fragment="content">
+    <form method="post" name="comment_form" id="comment_form" action="/programs/update" role="form">
+        <div class="form-group">
+            <tr>
+                <td><label for="message">Program ID</label></td>
+                <td><input type="text" id="program_id" name="program_id" class="form-control" th:value="${program.id}" readonly="true" /></td>
+            </tr>
+            <tr>
+                <td><label for="message">Program Name</label></td>
+                <td><input type="text" id="program_name" name="program_name" class="form-control" th:value="${program.name}" /></td>
+            </tr>
+            <tr>
+                <td><label for="message">Total Credit To Get The Degree</label></td>
+                <td><input type="text" id="total_credit" name="total_credit" class="form-control" th:value="${program.totalCredit}" /></td>
+            </tr>
+            <tr>
+                <td><label for="message">Student Can Enrol in One Semester</label></td>
+                <td><input type="text" id="enrol_each_sem" name="enrol_each_sem" class="form-control" th:value="${program.enrolEachSem}" /></td>
+            </tr>
+        </div>
+        <button type="submit" id="submit" class="btn btn-primary">Submit</button>
+        <a class="btn btn-primary" href="/units">Cancel</a>
+    </form>
+</div>
+</html>

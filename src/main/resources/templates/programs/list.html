@@ -1,0 +1,35 @@
+<html layout:decorator="layout">
+
+<div layout:fragment="content">
+
+    <table class="table table-striped" id="programs_lists">
+        <thead>
+        <tr>
+            <th>Program ID</th>
+            <th>Program Name</th>
+            <th>Total Credit To Get The Degree</th>
+            <th>Student Can Enrol in One Semester</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr data-th-each="program : ${programs}">
+            <td class="id" data-th-text="${program.id}"></td>
+
+            <td class="name" data-th-text="${program.name}"></td>
+
+            <td class="totalCredit" data-th-text="${program.totalCredit}"></td>
+
+            <td class="enrolEachSem" data-th-text="${program.enrolEachSem}"></td>
+
+            <td>
+                <a th:href="@{'/programs/{id}/edit'(id=${program.id})}" class="edit" th:attr="name=${program.name}">
+                <span class="fa-stack">
+                    <i class="glyphicon glyphicon-edit"></i>
+                </span>
+                </a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</html>

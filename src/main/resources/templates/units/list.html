@@ -1,0 +1,52 @@
+<html layout:decorator="layout">
+
+<div layout:fragment="content">
+
+<a class="btn btn-primary" href="/units/new">Add Unit</a>
+
+<table class="table table-striped" id="units_lists">
+    <thead>
+    <tr>
+        <th>Unit ID</th>
+        <th>Unit Name</th>
+        <th>Lecturer</th>
+        <th>Program</th>
+        <th>Credit</th>
+        <th>Description</th>
+        <th>Delete</th>
+        <th>Edit</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr data-th-each="unit : ${units}">
+        <td class="id" data-th-text="${unit.id}"></td>
+
+        <td class="name" data-th-text="${unit.name}"></td>
+
+        <td class="lecturer" data-th-text="${unit.lecturer}"></td>
+
+        <td class="program" data-th-text="${unit.program}"></td>
+
+        <td class="credit" data-th-text="${unit.credit}"></td>
+
+        <td class="description" data-th-text="${unit.description}"></td>
+
+        <td>
+            <a th:href="@{'/units/{id}/delete'(id=${unit.id})}" class="delete" th:attr="name=${unit.name}">
+                <span class="fa-stack">
+                    <i class="glyphicon glyphicon-trash"></i>
+                </span>
+            </a>
+        </td>
+        <td>
+            <a th:href="@{'/units/{id}/edit'(id=${unit.id})}" class="edit" th:attr="name=${unit.name}">
+                <span class="fa-stack">
+                    <i class="glyphicon glyphicon-edit"></i>
+                </span>
+            </a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+</div>
+</html>
