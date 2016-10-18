@@ -8,6 +8,7 @@ import javax.persistence.Table;
  * Created by vincent on 18/10/16.
  */
 
+/*
 @Entity
 @Table(name="enrollment")
 public class UnitEnrollment {
@@ -19,3 +20,4 @@ public class UnitEnrollment {
 
 
 }
+*/
