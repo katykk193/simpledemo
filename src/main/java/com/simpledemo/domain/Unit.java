@@ -1,7 +1,7 @@
 package com.simpledemo.domain;
 
 import javax.persistence.*;
-import java.util.ArrayList;
+import java.util.Set;
 
 @Entity
 @Table(name="UNIT")
@@ -25,11 +25,13 @@ public class Unit {
     @Column(name="DESCRIPTION")
     private String description;
 
-//    @ManyToMany(cascade = CascadeType.ALL)
-//    @JoinTable(name="STUUNI",
-//            joinColumns = {@JoinColumn(name="id")},
-//            inverseJoinColumns = {@JoinColumn(name="unit_id")})
-//    private ArrayList<Student> students = new ArrayList<Student>();
+    @OneToMany(mappedBy = "unit", cascade = CascadeType.ALL)
+//    @JoinTable(
+//            name="STUUNI",
+//            joinColumns = {@JoinColumn(name="UNIT_ID", referencedColumnName="UNIT_ID")},
+//            inverseJoinColumns = {@JoinColumn(name="STUDENT_ID", referencedColumnName="ID", unique=true)}
+//    )
+    private Set<StuUni> stuuni;
 
     public Unit() {
     }
@@ -96,11 +98,11 @@ public class Unit {
         this.description = description;
     }
 
-//    public ArrayList<Student> getStudents() {
-//        return students;
-//    }
-//
-//    public void setStudents(ArrayList<Student> students) {
-//        this.students = students;
-//    }
+    public Set<StuUni> getStuuni() {
+        return stuuni;
+    }
+
+    public void setStuuni(Set<StuUni> stuuni) {
+        this.stuuni = stuuni;
+    }
 }
