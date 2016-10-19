@@ -18,10 +18,19 @@ public class StuUni implements Serializable {
     private Unit unit;
 
     @Column(name="GRADE")
-    private int grade;
+    private Double grade;
 
     @Column(name="assignment")
     private String assignment;
+
+    public StuUni(){
+
+    }
+
+    public StuUni(Student student, Unit unit){
+        this.student = student;
+        this.unit = unit;
+    }
 
     public Student getStudent() {
         return student;
@@ -39,11 +48,11 @@ public class StuUni implements Serializable {
         this.unit = unit;
     }
 
-    public int getGrade() {
+    public double getGrade() {
         return grade;
     }
 
-    public void setGrade(int grade) {
+    public void setGrade(double grade) {
         this.grade = grade;
     }
 

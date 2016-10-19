@@ -7,4 +7,5 @@ import java.util.ArrayList;
 
 public interface UnitRepository extends CrudRepository<Unit, Long>{
     public ArrayList<Unit> findAll();
+    public ArrayList<Unit> findByProgram(String program);
 }

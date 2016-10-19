@@ -25,7 +25,7 @@ public class Student {
 //            inverseJoinColumns = {@JoinColumn(name="UNIT_ID", referencedColumnName="ID", unique=true)}
 //    )
     @OneToMany(mappedBy = "student", cascade = CascadeType.ALL)
-    private Set<StuUni> stuuni;
+    private Set<StuUni> stuunis;
 
     public long getId() {
         return id;
@@ -59,11 +59,11 @@ public class Student {
         this.email = email;
     }
 
-    public Set<StuUni> getStuuni() {
-        return stuuni;
+    public Set<StuUni> getStuunis() {
+        return stuunis;
     }
 
-    public void setStuuni(Set<StuUni> stuuni) {
-        this.stuuni = stuuni;
+    public void setStuunis(Set<StuUni> stuunis) {
+        this.stuunis = stuunis;
     }
 }

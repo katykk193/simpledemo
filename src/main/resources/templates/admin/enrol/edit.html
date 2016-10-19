@@ -1,0 +1,29 @@
+<html layout:decorator="/admin/adminLayout">
+<div layout:fragment="content">
+    <form method="post" name="comment_form" id="comment_form" action="/admin/enrol/update" role="form">
+        <div class="form-group">
+            <tr>
+                <td><label for="message">Student ID</label></td>
+                <td><input type="text" id="student_id" name="student_id" class="form-control" th:value="${student.id}" readonly="true" /></td>
+            </tr>
+            <tr>
+                <td><label for="message">Student Name</label></td>
+                <td><input type="text" id="student_name" name="student_name" class="form-control" th:value="${student.name}" readonly="true" /></td>
+            </tr>
+            <tr>
+                <td><label for="message">Program</label></td>
+                <td><input type="text" id="program" name="program" class="form-control" th:value="${student.program}" readonly="true" /></td>
+            </tr>
+            <td><label for="message">Unit</label></td>
+            <td><select id="unit" name="unit" class="form-control">
+                <option th:each="optUnit : ${units}"
+                        th:value="${optUnit.id} + ':' + ${optUnit.name}"
+                        th:text="${optUnit.id} + ':' + ${optUnit.name}"/>
+                </select>
+            </td>
+        </div>
+        <button type="submit" id="submit" class="btn btn-primary">Submit</button>
+        <a class="btn btn-primary" href="/admin/enrol">Cancel</a>
+    </form>
+</div>
+</html>

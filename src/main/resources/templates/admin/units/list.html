@@ -1,4 +1,4 @@
-<html layout:decorator="layout">
+<html layout:decorator="/admin/adminLayout">
 
 <div layout:fragment="content">
 
@@ -32,14 +32,14 @@
         <td class="description" data-th-text="${unit.description}"></td>
 
         <td>
-            <a th:href="@{'/admin/units/{id}/delete'(id=${unit.id})}" class="delete" th:attr="name=${unit.name}">
+            <a th:href="@{'/admin/units/{id}/delete'(id=${unit.id})}" class="delete">
                 <span class="fa-stack">
                     <i class="glyphicon glyphicon-trash"></i>
                 </span>
             </a>
         </td>
         <td>
-            <a th:href="@{'/admin/units/{id}/edit'(id=${unit.id})}" class="edit" th:attr="name=${unit.name}">
+            <a th:href="@{'/admin/units/{id}/edit'(id=${unit.id})}" class="edit">
                 <span class="fa-stack">
                     <i class="glyphicon glyphicon-edit"></i>
                 </span>

@@ -1,4 +1,4 @@
-<html layout:decorator="layout">
+<html layout:decorator="/admin/adminLayout">
 
 <div layout:fragment="content">
 
@@ -20,7 +20,7 @@
             <td class="program" data-th-text="${student.program}"></td>
 
             <td>
-                <a th:href="@{'/admin/enrol/{id}/edit'(id=${student.id})}" class="edit" th:attr="name=${student.name}">
+                <a th:href="@{'/admin/enrol/{id}/edit'(id=${student.id})}" class="edit">
                 <span class="fa-stack">
                     <i class="glyphicon glyphicon-edit"></i>
                 </span>
