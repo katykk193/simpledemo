@@ -4,6 +4,25 @@ import javax.persistence.*;
 import java.util.ArrayList;
 
 @Entity
+@Table(name="user")
+@DiscriminatorValue("ROLE_STUDENT")
+public class Student extends User{
+
+    @Column(name="program")
+    private String program;
+
+    public Student(User user) {
+        this.setId(user.getId());
+        this.setEmail(user.getEmail());
+        this.setPassword(user.getPassword());
+        this.setUsername(user.getUsername());
+    }
+
+}
+
+
+/*
+@Entity
 @Table(name="STUDENT")
 public class Student {
 
@@ -67,3 +86,4 @@ public class Student {
 
 
 }
+*/

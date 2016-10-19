@@ -1,10 +1,22 @@
 package com.simpledemo.domain;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
+@Entity
+@Table(name="user")
+@DiscriminatorValue("ROLE_TEACHER")
+public class Lecturer extends User {
+
+    public Lecturer(User user) {
+        this.setId(user.getId());
+        this.setEmail(user.getEmail());
+        this.setPassword(user.getPassword());
+        this.setUsername(user.getUsername());
+    }
+}
+
+
+/*
 @Entity
 @Table(name="LECTURER")
 public class Lecturer {
@@ -42,3 +54,4 @@ public class Lecturer {
         this.email = email;
     }
 }
+*/
