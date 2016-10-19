@@ -2,7 +2,7 @@
 
 <div layout:fragment="content">
 
-<a class="btn btn-primary" href="/units/new">Add Unit</a>
+<a class="btn btn-primary" href="/admin/units/new">Add Unit</a>
 
 <table class="table table-striped" id="units_lists">
     <thead>
@@ -32,14 +32,14 @@
         <td class="description" data-th-text="${unit.description}"></td>
 
         <td>
-            <a th:href="@{'/units/{id}/delete'(id=${unit.id})}" class="delete" th:attr="name=${unit.name}">
+            <a th:href="@{'/admin/units/{id}/delete'(id=${unit.id})}" class="delete" th:attr="name=${unit.name}">
                 <span class="fa-stack">
                     <i class="glyphicon glyphicon-trash"></i>
                 </span>
             </a>
         </td>
         <td>
-            <a th:href="@{'/units/{id}/edit'(id=${unit.id})}" class="edit" th:attr="name=${unit.name}">
+            <a th:href="@{'/admin/units/{id}/edit'(id=${unit.id})}" class="edit" th:attr="name=${unit.name}">
                 <span class="fa-stack">
                     <i class="glyphicon glyphicon-edit"></i>
                 </span>

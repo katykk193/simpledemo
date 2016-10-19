@@ -1,9 +1,9 @@
 package com.simpledemo.controller;
 
-import com.simpledemo.domain.LecturerRepository;
-import com.simpledemo.domain.ProgramRepository;
+import com.simpledemo.repository.LecturerRepository;
+import com.simpledemo.repository.ProgramRepository;
 import com.simpledemo.domain.Unit;
-import com.simpledemo.domain.UnitRepository;
+import com.simpledemo.repository.UnitRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -14,11 +14,11 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping("/units")
+@RequestMapping("/admin/units")
 public class UnitController {
 
     @Autowired
-    private UnitRepository unitRepo;
+    private UnitRepository unitRepository;
     @Autowired
     private LecturerRepository lecturerRepo;
     @Autowired
@@ -26,21 +26,21 @@ public class UnitController {
 
     @RequestMapping(value="", method=RequestMethod.GET)
     public String listUnits(Model model){
-        model.addAttribute("units", unitRepo.findAll());
-        return "units/list";
+        model.addAttribute("units", unitRepository.findAll());
+        return "admin/units/list";
     }
 
     @RequestMapping(value="/{id}/delete", method=RequestMethod.GET)
     public ModelAndView delete(@PathVariable long id){
-        unitRepo.delete(id);
-        return new ModelAndView("redirect:/units");
+        unitRepository.delete(id);
+        return new ModelAndView("redirect:/admin/units");
     }
 
     @RequestMapping(value="/new", method=RequestMethod.GET)
     public String newUnit(Model model){
         model.addAttribute("lecturers", lecturerRepo.findAll());
         model.addAttribute("programs", programRepo.findAll());
-        return "units/new";
+        return "admin/units/new";
     }
 
     @RequestMapping(value="/create", method=RequestMethod.POST)
@@ -50,8 +50,8 @@ public class UnitController {
                                @RequestParam("program") String program,
                                @RequestParam("credit") int credit,
                                @RequestParam("description") String description){
-        unitRepo.save(new Unit(id, name, lecturer, program, credit, description));
-        return new ModelAndView("redirect:/units");
+        unitRepository.save(new Unit(id, name, lecturer, program, credit, description));
+        return new ModelAndView("redirect:/admin/units");
     }
 
     @RequestMapping(value="/update", method=RequestMethod.POST)
@@ -61,24 +61,24 @@ public class UnitController {
                                @RequestParam("program") String program,
                                @RequestParam("credit") int credit,
                                @RequestParam("description") String description){
-        Unit unit = unitRepo.findOne(id);
+        Unit unit = unitRepository.findOne(id);
         unit.setName(name);
         unit.setLecturer(lecturer);
         unit.setProgram(program);
         unit.setCredit(credit);
         unit.setDescription(description);
-        unitRepo.save(unit);
-        return new ModelAndView("redirect:/units");
+        unitRepository.save(unit);
+        return new ModelAndView("redirect:/admin/units");
     }
 
     @RequestMapping(value="/{id}/edit", method=RequestMethod.GET)
     public String edit(@PathVariable long id,
                        Model model){
-        Unit unit = unitRepo.findOne(id);
+        Unit unit = unitRepository.findOne(id);
         model.addAttribute("unit", unit);
         model.addAttribute("lecturers", lecturerRepo.findAll());
         model.addAttribute("programs", programRepo.findAll());
-        return "units/edit";
+        return "admin/units/edit";
     }
 
 }

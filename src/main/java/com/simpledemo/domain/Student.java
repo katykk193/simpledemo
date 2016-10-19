@@ -59,7 +59,6 @@ public class Student {
         this.email = email;
     }
 
-
     public Set<StuUni> getStuuni() {
         return stuuni;
     }

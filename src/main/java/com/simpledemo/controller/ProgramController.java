@@ -1,8 +1,7 @@
 package com.simpledemo.controller;
 
 import com.simpledemo.domain.Program;
-import com.simpledemo.domain.ProgramRepository;
-import com.simpledemo.domain.Unit;
+import com.simpledemo.repository.ProgramRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,7 +12,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping("/programs")
+@RequestMapping("/admin/programs")
 public class ProgramController {
 
     @Autowired
@@ -22,7 +21,7 @@ public class ProgramController {
     @RequestMapping(value="", method= RequestMethod.GET)
     public String listPrograms(Model model){
         model.addAttribute("programs", programRepo.findAll());
-        return "programs/list";
+        return "admin/programs/list";
     }
 
     @RequestMapping(value="/{id}/edit", method=RequestMethod.GET)
@@ -30,7 +29,7 @@ public class ProgramController {
                        Model model){
         Program program = programRepo.findOne(id);
         model.addAttribute("program", program);
-        return "programs/edit";
+        return "admin/programs/edit";
     }
 
     @RequestMapping(value="/update", method=RequestMethod.POST)
@@ -43,6 +42,6 @@ public class ProgramController {
         program.setTotalCredit(totalCredit);
         program.setEnrolEachSem(enrolEachSem);
         programRepo.save(program);
-        return new ModelAndView("redirect:/programs");
+        return new ModelAndView("redirect:/admin/programs");
     }
 }

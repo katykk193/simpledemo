@@ -1,6 +1,6 @@
 <html layout:decorator="layout">
 <div layout:fragment="content">
-    <form method="post" name="comment_form" id="comment_form" action="/programs/update" role="form">
+    <form method="post" name="comment_form" id="comment_form" action="/admin/programs/update" role="form">
         <div class="form-group">
             <tr>
                 <td><label for="message">Program ID</label></td>
@@ -20,7 +20,7 @@
             </tr>
         </div>
         <button type="submit" id="submit" class="btn btn-primary">Submit</button>
-        <a class="btn btn-primary" href="/units">Cancel</a>
+        <a class="btn btn-primary" href="/admin/programs">Cancel</a>
     </form>
 </div>
 </html>

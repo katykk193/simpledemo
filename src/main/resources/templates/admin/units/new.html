@@ -1,6 +1,6 @@
 <html layout:decorator="layout">
 <div layout:fragment="content">
-    <form method="post" name="comment_form" id="comment_form" action="/units/create" role="form">
+    <form method="post" name="comment_form" id="comment_form" action="/admin/units/create" role="form">
         <div class="form-group">
             <tr>
                 <td>Unit ID</td>
@@ -22,7 +22,7 @@
             </tr>
             <tr>
                 <td>Program</td>
-                <td><select id="program" name="lecturer" class="form-control">
+                <td><select id="program" name="program" class="form-control">
                     <option th:each="option : ${programs}"
                             th:value="${option.name}"
                             th:text="${option.name}"/>
@@ -39,7 +39,7 @@
             </tr>
         </div>
         <button type="submit" id="submit" class="btn btn-primary">Submit</button>
-        <a class="btn btn-primary" href="/units">Cancel</a>
+        <a class="btn btn-primary" href="/admin/units">Cancel</a>
     </form>
 </div>
 </html>

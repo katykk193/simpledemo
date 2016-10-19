@@ -22,7 +22,7 @@
             <td class="enrolEachSem" data-th-text="${program.enrolEachSem}"></td>
 
             <td>
-                <a th:href="@{'/programs/{id}/edit'(id=${program.id})}" class="edit" th:attr="name=${program.name}">
+                <a th:href="@{'/admin/programs/{id}/edit'(id=${program.id})}" class="edit" th:attr="name=${program.name}">
                 <span class="fa-stack">
                     <i class="glyphicon glyphicon-edit"></i>
                 </span>
