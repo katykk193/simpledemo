@@ -1,40 +1,33 @@
-<!--<html layout:decorator="layout">-->
+<html layout:decorator="layout">
 
-<!--<div layout:fragment="content">-->
+<div layout:fragment="content">
 
-    <!--<table class="table table-striped" id="units_lists">-->
-        <!--<thead>-->
-        <!--<tr>-->
-            <!--<th>Student ID</th>-->
-            <!--<th>Student Name</th>-->
-            <!--<th>Program</th>-->
-            <!--<th>Unit ID</th>-->
-            <!--<th>Unit Name</th>-->
-        <!--</tr>-->
-        <!--</thead>-->
-        <!--<tbody>-->
-        <!--<tr data-th-each="student : ${students}">-->
-            <!--<td class="id" data-th-text="${student.id}"></td>-->
+    <table class="table table-striped" id="students_lists">
+        <thead>
+        <tr>
+            <th>Student ID</th>
+            <th>Student Name</th>
+            <th>Program</th>
+            <th>Edit Enrol Unit</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr data-th-each="student : ${students}">
+            <td class="id" data-th-text="${student.id}"></td>
 
-            <!--<td class="name" data-th-text="${student.name}"></td>-->
+            <td class="name" data-th-text="${student.name}"></td>
 
-            <!--<td class="lecturer" data-th-text="${student.lecturer}"></td>-->
+            <td class="program" data-th-text="${student.program}"></td>
 
-            <!--<td class="program" data-th-text="${unit.program}"></td>-->
-
-            <!--<td class="credit" data-th-text="${unit.credit}"></td>-->
-
-            <!--<td class="description" data-th-text="${unit.description}"></td>-->
-
-            <!--<td>-->
-                <!--<a th:href="@{'/units/{id}/edit'(id=${unit.id})}" class="edit" th:attr="name=${unit.name}">-->
-                <!--<span class="fa-stack">-->
-                    <!--<i class="glyphicon glyphicon-edit"></i>-->
-                <!--</span>-->
-                <!--</a>-->
-            <!--</td>-->
-        <!--</tr>-->
-        <!--</tbody>-->
-    <!--</table>-->
-<!--</div>-->
-<!--</html>-->
+            <td>
+                <a th:href="@{'/admin/enrol/{id}/edit'(id=${student.id})}" class="edit" th:attr="name=${student.name}">
+                <span class="fa-stack">
+                    <i class="glyphicon glyphicon-edit"></i>
+                </span>
+                </a>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+</html>
