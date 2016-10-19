@@ -8,6 +8,4 @@ import java.util.ArrayList;
 
 public interface ProgramRepository extends CrudRepository<Program, Long> {
 
-    public ArrayList<Program> findAll();
-
 }
