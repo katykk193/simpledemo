@@ -1,13 +1,12 @@
 package com.simpledemo.controller;
 
-import com.simpledemo.domain.LecturerRepository;
-import com.simpledemo.domain.ProgramRepository;
+import com.simpledemo.repository.LecturerRepository;
+import com.simpledemo.repository.ProgramRepository;
 import com.simpledemo.domain.Unit;
-import com.simpledemo.domain.UnitRepository;
+import com.simpledemo.repository.UnitRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;

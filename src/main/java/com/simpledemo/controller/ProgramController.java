@@ -1,8 +1,7 @@
 package com.simpledemo.controller;
 
 import com.simpledemo.domain.Program;
-import com.simpledemo.domain.ProgramRepository;
-import com.simpledemo.domain.Unit;
+import com.simpledemo.repository.ProgramRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
