@@ -1,0 +1,19 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link th:src="@{/style/app.css}" rel="stylesheet"/>
+</head>
+<body>
+
+<span th:text="${message}"></span>
+<form th:action="@{register}" method="post">
+    <input name="username" type="text"/>
+    <input name="password" type="text"/>
+    <input name="email" type="text"/>
+
+    <input type="radio" name="type" value="student" checked="checked"/> student
+    <input type="radio" name="type" value="teacher"/> teacher
+
+    <input type="submit" value="register"/>
+</form>
+
+</body></html>

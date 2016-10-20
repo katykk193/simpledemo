@@ -4,7 +4,7 @@ import javax.persistence.*;
 
 @Entity
 @Table(name="user")
-@DiscriminatorValue("ROLE_TEACHER")
+@DiscriminatorValue("L")
 public class Lecturer extends User {
 
     public Lecturer(User user) {
@@ -12,6 +12,8 @@ public class Lecturer extends User {
         this.setEmail(user.getEmail());
         this.setPassword(user.getPassword());
         this.setUsername(user.getUsername());
+        this.setType("ROLE_LECTURER");
+        this.setEnabled(1);
     }
 }
 

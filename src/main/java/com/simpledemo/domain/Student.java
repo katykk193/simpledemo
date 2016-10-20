@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 @Entity
 @Table(name="user")
-@DiscriminatorValue("ROLE_STUDENT")
+@DiscriminatorValue("S")
 public class Student extends User{
 
     @Column(name="program")
@@ -16,6 +16,8 @@ public class Student extends User{
         this.setEmail(user.getEmail());
         this.setPassword(user.getPassword());
         this.setUsername(user.getUsername());
+        this.setType("ROLE_STUDENT");
+        this.setEnabled(1);
     }
 
 }

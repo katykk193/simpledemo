@@ -11,7 +11,7 @@ import javax.persistence.*;
 @DiscriminatorColumn(
         name="discriminator",
         discriminatorType=DiscriminatorType.STRING)
-@DiscriminatorValue(value="ROLE_USER")
+@DiscriminatorValue(value="u")
 public class User {
     @Id
     @GeneratedValue
@@ -26,6 +26,9 @@ public class User {
 
     @Column(name="password")
     private String password;
+
+    @Column(name="enabled")
+    private int enabled;
 
     @Transient
     private String type;
@@ -70,5 +73,11 @@ public class User {
         this.type = type;
     }
 
+    public int getEnabled() {
+        return enabled;
+    }
 
+    public void setEnabled(int enabled) {
+        this.enabled = enabled;
+    }
 }
