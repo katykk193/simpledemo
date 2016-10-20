@@ -15,8 +15,8 @@
                 <td>
                     <select id="lecturer" name="lecturer" class="form-control">
                         <option th:each="option : ${lecturers}"
-                                th:value="${option.name}"
-                                th:text="${option.name}"/>
+                                th:value="${option.username}"
+                                th:text="${option.username}"/>
                     </select>
                 </td>
             </tr>

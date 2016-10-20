@@ -25,13 +25,13 @@ public class Unit {
     @Column(name="description")
     private String description;
 
-    @OneToMany(mappedBy = "unit", cascade = CascadeType.ALL)
-//    @JoinTable(
+    //    @JoinTable(
 //            name="STUUNI",
 //            joinColumns = {@JoinColumn(name="UNIT_ID", referencedColumnName="UNIT_ID")},
 //            inverseJoinColumns = {@JoinColumn(name="STUDENT_ID", referencedColumnName="ID", unique=true)}
 //    )
-    private Set<StuUni> stuuni;
+    @OneToMany(mappedBy = "unit", cascade=CascadeType.ALL)
+    private Set<StuUnit> stuunits;
 
     public Unit() {
     }
@@ -98,11 +98,12 @@ public class Unit {
         this.description = description;
     }
 
-    public Set<StuUni> getStuuni() {
-        return stuuni;
+    public Set<StuUnit> getStuunits() {
+        return stuunits;
     }
 
-    public void setStuuni(Set<StuUni> stuuni) {
-        this.stuuni = stuuni;
+    public void setStuunits(Set<StuUnit> stuunits) {
+        this.stuunits = stuunits;
     }
+
 }

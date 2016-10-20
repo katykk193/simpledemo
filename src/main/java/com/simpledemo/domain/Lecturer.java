@@ -7,6 +7,10 @@ import javax.persistence.*;
 @DiscriminatorValue("L")
 public class Lecturer extends User {
 
+    public Lecturer(){
+
+    }
+
     public Lecturer(User user) {
         this.setId(user.getId());
         this.setEmail(user.getEmail());

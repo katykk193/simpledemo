@@ -4,30 +4,30 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name="STUUNI")
-public class StuUni implements Serializable {
+@Table(name="STUUNIT")
+public class StuUnit implements Serializable {
 
     @Id
-    @ManyToOne
-    @JoinColumn(name = "STUDENT_ID")
+    @ManyToOne(cascade=CascadeType.ALL)
+    @JoinColumn(name = "USER_ID")
     private Student student;
 
     @Id
-    @ManyToOne
+    @ManyToOne(cascade=CascadeType.ALL)
     @JoinColumn(name = "UNIT_ID")
     private Unit unit;
+
+    @Column(name="ASSIGNMENT")
+    private String assignment;
 
     @Column(name="GRADE")
     private Double grade;
 
-    @Column(name="assignment")
-    private String assignment;
-
-    public StuUni(){
+    public StuUnit(){
 
     }
 
-    public StuUni(Student student, Unit unit){
+    public StuUnit(Student student, Unit unit){
         this.student = student;
         this.unit = unit;
     }

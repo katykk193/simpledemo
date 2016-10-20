@@ -11,6 +11,13 @@ public class Student extends User{
     @Column(name="program")
     private String program;
 
+    @OneToMany(mappedBy = "student", cascade=CascadeType.ALL)
+    private Set<StuUnit> stuunits;
+
+    public Student(){
+
+    }
+
     public Student(User user) {
         this.setId(user.getId());
         this.setEmail(user.getEmail());
@@ -18,6 +25,22 @@ public class Student extends User{
         this.setUsername(user.getUsername());
         this.setType("ROLE_STUDENT");
         this.setEnabled(1);
+    }
+
+    public String getProgram() {
+        return program;
+    }
+
+    public void setProgram(String program) {
+        this.program = program;
+    }
+
+    public Set<StuUnit> getStuunis() {
+        return stuunits;
+    }
+
+    public void setStuunis(Set<StuUnit> stuunis) {
+        this.stuunits = stuunis;
     }
 
 }
@@ -45,7 +68,7 @@ public class Student {
 //            joinColumns = {@JoinColumn(name="STUDENT_ID", referencedColumnName="STUDENT_ID")},
 //            inverseJoinColumns = {@JoinColumn(name="UNIT_ID", referencedColumnName="ID", unique=true)}
 //    )
-    @OneToMany(mappedBy = "student", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "student", cascade=CascadeType.ALL)
     private Set<StuUni> stuunis;
 
     public long getId() {
@@ -64,13 +87,7 @@ public class Student {
         this.name = name;
     }
 
-    public String getProgram() {
-        return program;
-    }
 
-    public void setProgram(String program) {
-        this.program = program;
-    }
 
     public String getEmail() {
         return email;
@@ -80,12 +97,5 @@ public class Student {
         this.email = email;
     }
 
-    public Set<StuUni> getStuunis() {
-        return stuunis;
-    }
-
-    public void setStuunis(Set<StuUni> stuunis) {
-        this.stuunis = stuunis;
-    }
 }
 */

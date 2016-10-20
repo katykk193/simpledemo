@@ -1,6 +1,6 @@
 package com.simpledemo.controller;
 
-import com.simpledemo.domain.StuUni;
+import com.simpledemo.domain.StuUnit;
 import com.simpledemo.domain.Student;
 import com.simpledemo.domain.Unit;
 import com.simpledemo.repository.StudentRepository;
@@ -14,16 +14,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.ArrayList;
+import java.util.Set;
 
 @Controller
 @RequestMapping("/admin/enrol")
 public class StudentController {
 
     @Autowired
-    private StudentRepository studentRepo;
-    @Autowired
     private UnitRepository unitRepo;
+    @Autowired
+    private StudentRepository studentRepo;
 
     @RequestMapping(value="", method= RequestMethod.GET)
     public String listStudents(Model model){
@@ -39,10 +39,12 @@ public class StudentController {
         long unitId = Long.parseLong(unitStrs[0]);
 
         Unit unit = unitRepo.findOne(unitId);
-        StuUni stuuni = new StuUni(student, unit);
+        StuUnit stuuni = new StuUnit(student, unit);
 
-//        student.getStuunis().add(stuuni);
+        student.getStuunis().add(stuuni);
+//        unit.getStuunis().add(stuuni);
         studentRepo.save(student);
+//        unitRepo.save(unit);
 
         return new ModelAndView("redirect:/admin/enrol");
     }
@@ -51,7 +53,7 @@ public class StudentController {
     public String edit(@PathVariable long id,
                        Model model){
         Student student = studentRepo.findOne(id);
-        ArrayList<Unit> units = unitRepo.findByProgram(student.getProgram());
+        Set<Unit> units = unitRepo.findByProgram(student.getProgram());
         model.addAttribute("student", student);
         model.addAttribute("units", units);
         return "admin/enrol/edit";
