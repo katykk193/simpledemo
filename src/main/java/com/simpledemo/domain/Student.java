@@ -4,6 +4,27 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Entity
+@Table(name="user")
+@DiscriminatorValue("S")
+public class Student extends User{
+
+    @Column(name="program")
+    private String program;
+
+    public Student(User user) {
+        this.setId(user.getId());
+        this.setEmail(user.getEmail());
+        this.setPassword(user.getPassword());
+        this.setUsername(user.getUsername());
+        this.setType("ROLE_STUDENT");
+        this.setEnabled(1);
+    }
+
+}
+
+
+/*
+@Entity
 @Table(name="STUDENT")
 public class Student {
 
@@ -67,3 +88,4 @@ public class Student {
         this.stuunis = stuunis;
     }
 }
+*/

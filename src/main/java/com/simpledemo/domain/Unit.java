@@ -4,25 +4,25 @@ import javax.persistence.*;
 import java.util.Set;
 
 @Entity
-@Table(name="UNIT")
+@Table(name="unit")
 public class Unit {
 
     @Id
     private long id;
 
-    @Column(name="NAME")
+    @Column(name="name")
     private String name;
 
-    @Column(name="LECTURER")
+    @Column(name="lecturer")
     private String lecturer;
 
-    @Column(name="PROGRAM")
+    @Column(name="program")
     private String program;
 
-    @Column(name="CREDIT")
+    @Column(name="credit")
     private int credit;
 
-    @Column(name="DESCRIPTION")
+    @Column(name="description")
     private String description;
 
     @OneToMany(mappedBy = "unit", cascade = CascadeType.ALL)
