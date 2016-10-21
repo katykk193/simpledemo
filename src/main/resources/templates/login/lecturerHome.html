@@ -1,0 +1,14 @@
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link th:src="@{/style/app.css}" rel="stylesheet"/>
+</head>
+<body>
+
+<P>Hello Lecturer: <span th:text="${user.username}">...</span></P>
+
+<!--<span th:text="${user.username}">...</span>-->
+<!--<span th:text="${user.password}">...</span>-->
+<a href="logout"><input type="button" value="logout" /></a>
+</body>
+
+</html>

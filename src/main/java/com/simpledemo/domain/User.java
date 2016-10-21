@@ -30,7 +30,7 @@ public class User {
     @Column(name="enabled")
     private int enabled;
 
-    @Transient
+    @Column(name="type")
     private String type;
 
     public long getId() {
