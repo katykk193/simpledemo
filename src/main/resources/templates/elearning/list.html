@@ -1,0 +1,25 @@
+<html layout:decorator="layout">
+
+<div layout:fragment="content">
+
+
+    <table class="table table-striped" id="myunits">
+        <thead>
+        <tr>
+            <th>My units of study</th>
+
+        </tr>
+        </thead>
+        <tbody>
+        <tr data-th-each="myEnrollment : ${myEnrollment}">
+            <td class="id" data-th-text="${myEnrollment.unitID}">
+
+                <!--<a th:href="@{'/elearning/{id}/myUnit'(id=${myEnrollment.id})}" class="show" >-->
+                <!--</a>-->
+            </td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+</html>

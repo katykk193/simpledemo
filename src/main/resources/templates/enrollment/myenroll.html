@@ -1,0 +1,32 @@
+<html layout:decorator="layout">
+<div layout:fragment="content">
+    <form method="post" name="comment_form" id="comment_form" action="/enrollment/update" role="form">
+        <div class="form-group">
+            <tr>
+                <td><label for="message">Unit ID</label></td>
+                <td><input type="text" id="unit_id" name="unit_id" class="form-control" th:value="${unit.id}" readonly="true" /></td>
+            </tr>
+            <tr>
+                <td><label for="message">Unit Name</label></td>
+                <td><input type="text" id="unit_name" name="unit_name" class="form-control" th:value="${unit.name}" readonly="true" /></td>
+            </tr>
+            <tr>
+                <td><label for="message">Lecturer</label></td>
+                <td><input type="text" id="Lecturer" name="Lecturer" class="form-control" th:value="${unit.lecturer}" readonly="true" /></td>
+            </tr>
+
+            <tr>
+                <td><label for="message">Credit</label></td>
+                <td><input type="text" id="credit" name="credit" class="form-control" th:value="${unit.credit}" readonly="true"/></td>
+            </tr>
+
+            <tr>
+                <td><label for="message">Description</label></td>
+                <td><input type="text" id="description" name="description" class="form-control" th:value="${unit.description}" readonly="true" /></td>
+            </tr>
+        </div>
+        <button type="add" id="add" class="btn btn-primary">Add</button>
+        <a class="btn btn-primary" href="/enrollment">Cancel</a>
+    </form>
+</div>
+</html>
