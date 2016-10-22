@@ -1,8 +1,9 @@
-<<html>
-<body>
+<html layout:decorator="layout" xmlns:layout="http://www.w3.org/1999/xhtml">
+<div layout:fragment="content">
+
 <form method="POST" enctype="multipart/form-data" action="/uploadMaterial">
     File to upload: <input type="file" name="file"><br />
     Name: <input type="text" name="name"><br /> <br /> <input type="submit" value="Upload"> Press here to upload the file!
 </form>
-</body>
+</div>
 </html>

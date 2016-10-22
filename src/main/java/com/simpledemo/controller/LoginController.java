@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  * Created by vincent on 21/10/16.
- */
+// */
 @Controller
 public class LoginController {
     @RequestMapping(value="/login", method= RequestMethod.GET)

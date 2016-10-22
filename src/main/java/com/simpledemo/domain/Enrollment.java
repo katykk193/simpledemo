@@ -11,7 +11,7 @@ public class Enrollment {
     private long id;
 
     @Column(name="studentID")
-    private long studentID;
+    private String studentID;
 
     @Column(name="UnitID")
     private long unitID;
@@ -26,7 +26,7 @@ public class Enrollment {
     public Enrollment() {
     }
 
-    public Enrollment(long id,long studentID, long unitID,String unitName){
+    public Enrollment(long id,String studentID, long unitID,String unitName){
         this.id=id;
         this.studentID = studentID;
         this.unitID = unitID;
@@ -41,11 +41,11 @@ public class Enrollment {
         this.id = id;
     }
 
-    public long getStudentID() {
+    public String getStudentID() {
         return studentID;
     }
 
-    public void setStudentID(long studentID) {
+    public void setStudentID(String studentID) {
         this.studentID = studentID;
     }
 

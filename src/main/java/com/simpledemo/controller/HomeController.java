@@ -38,7 +38,9 @@ public class HomeController {
     @RequestMapping(value="studentHome", method= RequestMethod.GET)
     public ModelAndView studentHomeGET() {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+
         User user = this.userRepository.findByUsername(auth.getName());
+
         return new ModelAndView("login/studentHome", "user", user);
     }
     @RequestMapping(value="lecturerHome", method= RequestMethod.GET)

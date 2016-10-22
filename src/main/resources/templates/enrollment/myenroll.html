@@ -1,6 +1,6 @@
 <html layout:decorator="layout">
 <div layout:fragment="content">
-    <form method="post" name="comment_form" id="comment_form" action="/enrollment/update" role="form">
+    <form method="post" name="comment_form" id="comment_form" action="/enrollment/enroll" role="form">
         <div class="form-group">
             <tr>
                 <td><label for="message">Unit ID</label></td>
@@ -25,7 +25,7 @@
                 <td><input type="text" id="description" name="description" class="form-control" th:value="${unit.description}" readonly="true" /></td>
             </tr>
         </div>
-        <button type="add" id="add" class="btn btn-primary">Add</button>
+        <button type="add" id="add" class="btn btn-primary">Enroll this unit</button>
         <a class="btn btn-primary" href="/enrollment">Cancel</a>
     </form>
 </div>

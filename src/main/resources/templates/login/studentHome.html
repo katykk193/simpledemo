@@ -3,11 +3,13 @@
     <link th:src="@{/style/app.css}" rel="stylesheet"/>
 </head>
 <body>
+<p>
 
 <P>Hello Student: <span th:text="${user.username}">...</span></P>
 
-<!--<span th:text="${user.username}">...</span>-->
-<!--<span th:text="${user.password}">...</span>-->
+<p></p><a  href="/enrollment">Student Management</a></p>
+<a  href="/elearning">Elearning Management</a>
+
 <a href="logout"><input type="button" value="logout" /></a>
 </body>
 

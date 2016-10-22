@@ -21,11 +21,11 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         return new CustomUserDetailsService();
     }
 
-    @Override  
+    @Override
     protected void configure(AuthenticationManagerBuilder auth)
-            throws Exception {  
-        auth.userDetailsService(userDetailsService());  
-    }  
+            throws Exception {
+        auth.userDetailsService(userDetailsService());
+    }
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
